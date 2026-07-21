@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMB Universitas Imelda Medan 2026</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --uim-blue: #0056b3;
+            --uim-light-blue: #e7f1ff;
+            --uim-accent: #ffc107;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .navbar-brand img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 86, 179, 0.9), rgba(0, 40, 90, 0.9)), url('https://dummyimage.com/1920x1080/0056b3/fff&text=UIM+Medan'); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-weight: 700;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Cards */
+        .prodi-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 100%;
+            border-top: 5px solid var(--uim-blue);
+        }
+        .prodi-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Gallery & Brochure Images */
+        .gallery-img, .brosur-thumb {
+            width: 100%;
+            height: 250px; 
+            object-fit: cover; 
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .brosur-thumb {
+            border-radius: 10px 10px 0 0;
+            cursor: pointer;
+        }
+        .brosur-thumb:hover {
+            opacity: 0.9;
+        }
+
+        /* Timeline/Steps */
+        .timeline-steps {
+            position: relative;
+        }
+        .step-card {
+            border-left: 4px solid var(--uim-blue);
+            background: #fff;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s ease;
+        }
+        .step-card:hover {
+            background-color: var(--uim-light-blue);
+        }
+
+        /* Tables */
+        .table-custom thead {
+            background-color: var(--uim-blue);
+            color: white;
+        }
+
+        /* WA Group Section */
+        .wa-group-section {
+            background-color: #25d366; 
+            color: white;
+        }
+
+        /* Floating WA Button */
+        .float-wa {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+        
+        .float-wa:hover {
+            transform: scale(1.1);
+            color: #FFF;
+        }
+
+        footer {
+            background-color: #0d2642;
+            color: white;
+            padding: 30px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="index.html">
+                <img src="https://uimedan.ac.id/uploads/setup/Wgv2svxKBHl25JLRy0uHThgY1iae5E0srQ8U2b9x.png" alt="Logo UIM" height="50">UIM 2026
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#brosur">Brosur</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#jadwal">Jadwal & Diskon</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#prodi">Program Studi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#biaya">Biaya</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cara-daftar">Cara Daftar</a></li>
+                    <li class="nav-item ms-2">
+                        <a href="#prodi" class="btn btn-primary rounded-pill px-4">Daftar Sekarang</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section d-flex align-items-center">
+        <div class="container">
+            <h1 class="hero-title">PENERIMAAN MAHASISWA BARU 2026</h1>
+            <h2 class="h4 mb-4 text-light">UNIVERSITAS IMELDA MEDAN</h2>
+            <p class="lead mb-5">Raih Masa Depan Gemilang Bersama Kampus Kesehatan & Teknologi Terakreditasi</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#prodi" class="btn btn-light btn-lg text-primary fw-bold rounded-pill px-5 shadow">Lihat Program Studi</a>
+                <a href="#brosur" class="btn btn-outline-light btn-lg fw-bold rounded-pill px-5">Lihat Brosur</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION BROSUR BARU -->
+    <section id="brosur" class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-primary">BROSUR PMB 2026</h2>
+                <p class="text-muted">Klik tombol atau gambar untuk melihat brosur dalam ukuran penuh</p>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <!-- Brosur 1: Bagian Depan -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0 bg-light">
+                        <img src="brosur1.jpeg" class="card-img-top brosur-thumb" alt="Brosur Bagian Depan" data-bs-toggle="modal" data-bs-target="#modalBrosur1">
+                        <div class="card-body text-center">
+                            <h5 class="fw-bold text-dark">Brosur Umum (Depan)</h5>
+                            <button class="btn btn-outline-primary mt-2 rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#modalBrosur1">
+                                <i class="fas fa-search-plus me-2"></i>Lihat Brosur
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brosur 2: Bagian Belakang -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0 bg-light">
+                        <img src="brosur2.jpeg" class="card-img-top brosur-thumb" alt="Brosur Bagian Belakang" data-bs-toggle="modal" data-bs-target="#modalBrosur2">
+                        <div class="card-body text-center">
+                            <h5 class="fw-bold text-dark">Brosur Umum (Belakang)</h5>
+                            <button class="btn btn-outline-primary mt-2 rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#modalBrosur2">
+                                <i class="fas fa-search-plus me-2"></i>Lihat Brosur
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brosur 3: Kedokteran -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0 bg-light">
+                        <img src="brosur-fk.jpeg" class="card-img-top brosur-thumb" alt="Brosur Fakultas Kedokteran" data-bs-toggle="modal" data-bs-target="#modalBrosurFK">
+                        <div class="card-body text-center">
+                            <h5 class="fw-bold text-dark">Brosur Fakultas Kedokteran</h5>
+                            <button class="btn btn-outline-primary mt-2 rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#modalBrosurFK">
+                                <i class="fas fa-search-plus me-2"></i>Lihat Brosur
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Pop-ups untuk Brosur -->
+    <!-- Modal Brosur 1 -->
+    <div class="modal fade" id="modalBrosur1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-0 pb-3">
+                    <img src="brosur1.jpeg" class="img-fluid rounded" alt="Brosur Bagian Depan">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Brosur 2 -->
+    <div class="modal fade" id="modalBrosur2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-0 pb-3">
+                    <img src="brosur2.jpeg" class="img-fluid rounded" alt="Brosur Bagian Belakang">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Brosur FK -->
+    <div class="modal fade" id="modalBrosurFK" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-0 pb-3">
+                    <img src="brosur-fk.jpeg" class="img-fluid rounded" alt="Brosur Fakultas Kedokteran">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Jadwal Tetap Sama -->
+    <section id="jadwal" class="py-5 bg-light">
+        <!-- Bagian jadwal dipertahankan agar tidak terlalu panjang, ini placeholder jika butuh merender kode penuh. Anda cukup menggunakan kode jadwal sebelumnya di sini. -->
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-primary">JADWAL PENDAFTARAN & DISKON</h2>
+                <p class="text-muted">Manfaatkan potongan biaya pendaftaran dengan mendaftar lebih awal!</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-primary text-center p-4 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="badge bg-primary fs-5 mb-3">GELOMBANG I</h3>
+                            <h2 class="display-4 fw-bold text-primary">50% OFF</h2>
+                            <p class="text-muted fw-bold">Diskon Uang Pangkal</p>
+                            <hr>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="far fa-calendar-alt me-2 text-primary"></i> <strong>Daftar:</strong> 01 Jan - 31 Mar 2026</li>
+                                <li><i class="fas fa-money-bill-wave me-2 text-primary"></i> <strong>Bayar Max:</strong> 06 April 2026</li>
+                                <li><i class="fas fa-edit me-2 text-primary"></i> <strong>Ujian:</strong> 01 April 2026</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-info text-center p-4 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="badge bg-info text-dark fs-5 mb-3">GELOMBANG II</h3>
+                            <h2 class="display-4 fw-bold text-info">25% OFF</h2>
+                            <p class="text-muted fw-bold">Diskon Uang Pangkal</p>
+                            <hr>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="far fa-calendar-alt me-2 text-info"></i> <strong>Daftar:</strong> 02 April - 30 Juni 2026</li>
+                                <li><i class="fas fa-money-bill-wave me-2 text-info"></i> <strong>Bayar Max:</strong> 06 Juli 2026</li>
+                                <li><i class="fas fa-edit me-2 text-info"></i> <strong>Ujian:</strong> 01 Juli 2026</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-warning text-center p-4 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="badge bg-warning text-dark fs-5 mb-3">GELOMBANG III</h3>
+                            <h2 class="display-4 fw-bold text-warning">10% OFF</h2>
+                            <p class="text-muted fw-bold">Diskon Uang Pangkal</p>
+                            <hr>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="far fa-calendar-alt me-2 text-warning"></i> <strong>Daftar:</strong> 02 Juli - 25 Agst 2026</li>
+                                <li><i class="fas fa-money-bill-wave me-2 text-warning"></i> <strong>Bayar Max:</strong> 31 Agst 2026</li>
+                                <li><i class="fas fa-edit me-2 text-warning"></i> <strong>Ujian:</strong> 26 Agst 2026</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-secondary mt-4 text-center">
+                <small class="fw-bold">*Diskon tidak berlaku untuk: S1 Kedokteran, S1 Pariwisata, S1 Ekonomi Syariah, D3 Komputerisasi Akuntansi, Profesi Dokter/Ners/Bidan, Jalur RPL/Ekstensi .</small>
+            </div>
+        </div>
+    </section>
+
+    <section id="prodi" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-primary">PROGRAM STUDI</h2>
+                <p>Pilihan Program Studi Terakreditasi Sesuai Minat Anda</p>
+            </div>
+            
+            <!-- Fitur Live Search Interaktif -->
+            <div class="search-container position-relative">
+                <i class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                <input type="text" id="searchInput" class="form-control form-control-lg rounded-pill ps-5 shadow-sm" placeholder="Ketik untuk mencari Program Studi...">
+            </div>
+            
+            <div class="row g-4" id="prodi-container">
+                <!-- Data akan di-render melalui JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Cara Daftar -->
+    <section id="cara-daftar" class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <h2 class="fw-bold text-primary mb-3">ALUR PENDAFTARAN</h2>
+                    <p class="lead text-muted">Ikuti langkah mudah berikut untuk menjadi bagian dari Universitas Imelda Medan.</p>
+                    <div class="alert alert-info shadow-sm">
+                        <i class="fab fa-whatsapp me-2"></i> Pendaftaran dipandu langsung oleh <strong>Nataria Yanti Silaban, S.Kep, Ns, M.Kep.</strong> melalui WhatsApp resmi.
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="timeline-steps">
+                        <div class="step-card">
+                            <h5 class="fw-bold text-primary">1. Pilih Prodi</h5>
+                            <p class="mb-0">Tentukan program studi pilihan Anda di website ini.</p>
+                        </div>
+                        <div class="step-card">
+                            <h5 class="fw-bold text-primary">2. Hubungi Admin (Ibu Nataria)</h5>
+                            <p class="mb-0">Klik tombol WhatsApp pada prodi pilihan untuk terhubung otomatis.</p>
+                        </div>
+                        <div class="step-card">
+                            <h5 class="fw-bold text-primary">3. Konsultasi & Verifikasi</h5>
+                            <p class="mb-0">Data diri akan diverifikasi sebelum lanjut ke pembayaran.</p>
+                        </div>
+                        <div class="step-card">
+                            <h5 class="fw-bold text-primary">4. Transfer Biaya</h5>
+                            <p class="mb-0 text-danger fw-bold">Transfer HANYA ke rekening resmi Yayasan/STIKes Imelda (BRI).</p>
+                        </div>
+                        <div class="step-card">
+                            <h5 class="fw-bold text-primary">5. Kirim Bukti & Aktivasi Akun</h5>
+                            <p class="mb-0">Kirim bukti transfer ke WhatsApp. <strong>AKUN MAHASISWA DIBUAT OLEH ADMIN</strong>. Anda akan menerima Akun PMB & NIM Sementara.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tombol WhatsApp Mengambang -->
+    <a href="https://wa.me/6281375710571?text=Halo%20Ibu%20Nataria,%20saya%20ingin%20bertanya%20seputar%20PMB%20UIM%202026." class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const prodiList = [
+            { name: "S1 Kedokteran", level: "S1", accr: "TERAKREDITASI", desc: "Menghasilkan dokter profesional yang kompeten dan beretika." },
+            { name: "Profesi Dokter", level: "Profesi", accr: "TERAKREDITASI", desc: "Program lanjutan pendidikan dokter klinis." },
+            { name: "S1 Keperawatan", level: "S1", accr: "BAIK SEKALI", desc: "Pendidikan ners akademik unggulan." },
+            { name: "Profesi Ners", level: "Profesi", accr: "BAIK SEKALI", desc: "Program profesi untuk menjadi Ners profesional." },
+            { name: "S1 Kebidanan", level: "S1", accr: "BAIK", desc: "Mencetak bidan unggul dalam pelayanan ibu dan anak." },
+            { name: "Profesi Bidan", level: "Profesi", accr: "BAIK", desc: "Pendidikan lanjutan profesi bidan." },
+            { name: "S1 Farmasi", level: "S1", accr: "BAIK SEKALI", desc: "Ahli farmasi klinis dan industri." },
+            { name: "S1 Pariwisata", level: "S1", accr: "BAIK", desc: "Manajemen pariwisata modern." },
+            { name: "S1 Ekonomi Syariah", level: "S1", accr: "BAIK", desc: "Ekonomi berbasis syariah islam." },
+            { name: "D3 Keperawatan", level: "D3", accr: "BAIK SEKALI", desc: "Tenaga vokasi keperawatan siap kerja." },
+            { name: "D3 Perekam & Info Kes.", level: "D3", accr: "BAIK SEKALI", desc: "Ahli rekam medis digital." },
+            { name: "D3 Komp. Akuntansi", level: "D3", accr: "BAIK SEKALI", desc: "Akuntansi berbasis teknologi komputer." },
+            { name: "D4 Manj. Info Kes.", level: "D4", accr: "BAIK", desc: "Sarjana terapan manajemen data kesehatan." }
+        ];
+
+        // Variabel target nomor HP mahasiswa 
+        const targetPhone = "6281375710571";
+
+        const container = document.getElementById('prodi-container');
+        
+        // Fungsi untuk me-render card prodi
+        function renderProdi(data) {
+            container.innerHTML = '';
+            
+            if(data.length === 0) {
+                container.innerHTML = `<div class="col-12 text-center text-muted"><p>Program studi tidak ditemukan.</p></div>`;
+                return;
+            }
+
+            data.forEach(item => {
+                const message = `Halo Ibu Nataria, saya ingin menanyakan seputar pendaftaran prodi ${item.name}. Saya menghubungi dari website UIM.`;
+                const waLink = `https://wa.me/${targetPhone}?text=${encodeURIComponent(message)}`;
+
+                const col = document.createElement('div');
+                col.className = 'col-md-6 col-lg-4 prodi-col'; 
+                col.innerHTML = `
+                    <div class="card prodi-card shadow-sm h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="mb-2">
+                                <span class="badge bg-primary">${item.level}</span>
+                                <span class="badge bg-success bg-opacity-75"><i class="fas fa-star me-1"></i>${item.accr}</span>
+                            </div>
+                            <h5 class="card-title fw-bold mt-2">${item.name}</h5>
+                            <p class="card-text text-muted flex-grow-1">${item.desc}</p>
+                            <a href="${waLink}" target="_blank" class="btn btn-success w-100 mt-3">
+                                <i class="fab fa-whatsapp me-2"></i>Daftar via WA
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(col);
+            });
+        }
+
+        // Render awal semua prodi
+        renderProdi(prodiList);
+
+        // Event Listener untuk Live Search interaktif
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredProdi = prodiList.filter(prodi => 
+                prodi.name.toLowerCase().includes(searchTerm) || 
+                prodi.level.toLowerCase().includes(searchTerm)
+            );
+            
+            // Animasi fade sederhana saat mencari
+            container.style.opacity = '0.5';
+            setTimeout(() => {
+                renderProdi(filteredProdi);
+                container.style.opacity = '1';
+                container.style.transition = 'opacity 0.3s ease-in-out';
+            }, 150);
+        });
+
+    </script>
+</body>
+</html>
